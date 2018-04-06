@@ -16,7 +16,7 @@ void OpenShutter() {
 
     PORTB = 0;
     RB1 = 1;
-    _delay(10000);
+    _delaywdt(2000000);
     RB1 = 0;
     RB2 = 1;    
 
@@ -27,7 +27,7 @@ void CloseShutter() {
     PORTB = 0;
         
     RB3 = 1;
-    _delay(10000);
+    _delaywdt(800000);
     RB3 = 0;
 }
 

@@ -3,10 +3,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "1433
 [v _RB1 `Vb ~T0 @X0 0 e@49 ]
-[v F599 `(v ~T0 @X0 1 tf1`ul ]
-"153 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic.h
-[v __delay `JF599 ~T0 @X0 0 e ]
-[p i __delay ]
+[v F602 `(v ~T0 @X0 1 tf1`ul ]
+"155 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic.h
+[v __delaywdt `JF602 ~T0 @X0 0 e ]
+[p i __delaywdt ]
 "1435 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f627a.h
 [v _RB2 `Vb ~T0 @X0 0 e@50 ]
 "1437
@@ -20,6 +20,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _OPTION_REG `Vuc ~T0 @X0 0 e@129 ]
 "1425
 [v _RA5 `Vb ~T0 @X0 0 e@45 ]
+[v F599 `(v ~T0 @X0 1 tf1`ul ]
+"153 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic.h
+[v __delay `JF599 ~T0 @X0 0 e ]
+[p i __delay ]
 "1 main.c
 [p x FOSC=INTOSCCLK ]
 "2
@@ -619,9 +623,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 18: RB1 = 1;
 "18
 [e = _RB1 -> -> 1 `i `b ]
-[; ;main.c: 19: _delay(10000);
+[; ;main.c: 19: _delaywdt(2000000);
 "19
-[e ( __delay (1 -> -> -> 10000 `i `l `ul ]
+[e ( __delaywdt (1 -> -> 2000000 `l `ul ]
 [; ;main.c: 20: RB1 = 0;
 "20
 [e = _RB1 -> -> 0 `i `b ]
@@ -644,9 +648,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 29: RB3 = 1;
 "29
 [e = _RB3 -> -> 1 `i `b ]
-[; ;main.c: 30: _delay(10000);
+[; ;main.c: 30: _delaywdt(800000);
 "30
-[e ( __delay (1 -> -> -> 10000 `i `l `ul ]
+[e ( __delaywdt (1 -> -> 800000 `l `ul ]
 [; ;main.c: 31: RB3 = 0;
 "31
 [e = _RB3 -> -> 0 `i `b ]

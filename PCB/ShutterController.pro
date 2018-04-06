@@ -1,4 +1,4 @@
-update=01/04/2018 01:30:51
+update=06/04/2018 02:49:59
 version=1
 last_client=kicad
 [pcbnew]
@@ -62,3 +62,13 @@ LibName33=microchip_pic16mcu
 [cvpcb]
 version=1
 NetIExt=net
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
