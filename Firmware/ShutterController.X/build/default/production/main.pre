@@ -5,7 +5,7 @@
 #pragma config PWRTE = ON
 #pragma config MCLRE = OFF
 #pragma config BOREN = ON
-#pragma config LVP = ON
+#pragma config LVP = OFF
 #pragma config CPD = OFF
 #pragma config CP = OFF
 
@@ -845,53 +845,58 @@ extern __bank0 __bit __timeout;
 
 # 12 "main.c"
 bit currentState;
-void CloseShutter();
 
 void OpenShutter() {
 
-PORTB = 0;
-RB1 = 1;
-_delaywdt(2000000);
-RB1 = 0;
-RB2 = 1;
+PORTB = 0b01000010;
+_delaywdt(1500000);
+PORTB = 0b01000100;
 
 }
 
 void CloseShutter() {
 
-PORTB = 0;
-
-RB3 = 1;
+PORTB = 0b00101000;
 _delaywdt(800000);
-RB3 = 0;
+PORTB = 0b00000000;
 }
 
-void interrupt isr(void) {
-
-
-
-}
+void interrupt isr(void) { }
 
 
 int main(void) {
 
-TRISA = 0b00100000;
-TRISB = 0b00000000;
+TRISB = 0b00000001;
 OPTION_REG = 0b10001111;
+currentState = 0;
+
+PORTB = 0b00000000;
+_delaywdt(250000);
+PORTB = 0b01000000;
+_delaywdt(250000);
+PORTB = 0b00100000;
+_delaywdt(250000);
+PORTB = 0b00001000;
+_delaywdt(250000);
+PORTB = 0b00000100;
+_delaywdt(250000);
+PORTB = 0b00000010;
+_delaywdt(250000);
+PORTB = 0b00000000;
 
 while(1) {
 
-if (currentState == 0 && RA5 == 1) {
-currentState = RA5;
+if (currentState == 0 && RB0 == 1) {
+currentState = RB0;
 OpenShutter();
 
-} else if (currentState == 1 && RA5 == 0) {
-currentState = RA5;
+} else if (currentState == 1 && RB0 == 0) {
+currentState = RB0;
 CloseShutter();
 
 }
 
-_delay(100);
+_delaywdt(1000);
 asm("clrwdt");
 }
 
